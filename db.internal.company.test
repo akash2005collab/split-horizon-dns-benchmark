@@ -1,0 +1,6 @@
+$TTL 604800
+@ IN SOA ns.company.test. admin.company.test. ( 1
+604800 86400 2419200 604800 )
+@ IN NS ns.company.test.
+ns IN A 10.10.10.1
+app IN A 10.10.10.10

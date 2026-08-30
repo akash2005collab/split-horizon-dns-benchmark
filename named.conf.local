@@ -1,0 +1,27 @@
+acl "internal" {
+   127.0.0.1;
+};
+
+acl "external"{
+any;
+};
+
+view "internal"{
+match-clients{internal;};
+include "/etc/bind/named.conf.default-zones";
+zone "company.test"{
+type master;
+file
+"/etc/bind/zones/db.internal.company.test";
+};
+};
+
+view "external"{
+match-clients{external;};
+include "/etc/bind/named.conf.default-zones";
+zone "company.test"{
+type master;
+file
+"/etc/bind/zones/db.external.company.test";
+};
+};
